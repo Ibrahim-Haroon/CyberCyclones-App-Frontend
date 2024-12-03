@@ -1,16 +1,9 @@
 services:
-  web:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    ports:
-      - "5173:5173"
+  cyber-cyclones-frontend:
+    image: cyber-cyclones-frontend:latest
+    container_name: cyber-cyclones-frontend
     env_file:
       - .env
-    restart: unless-stopped
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge
+    build: .
+    ports:
+      - "5173:5173"
